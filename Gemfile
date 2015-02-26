@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.20'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,6 +21,27 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :development, :test do
+  gem 'better_errors'
+  gem "factory_girl_rails"
+  gem 'capybara'
+  # gem 'capybara-webkit'
+  gem 'rspec-rails'
+  gem 'dragonfly', '~> 1.0.7'
+  gem 'headless'
+  gem 'guard-rspec'
+  gem 'launchy'
+  gem 'rspec-mocks'
+  gem 'quiet_assets'
+  # gem 'debugger'
+  gem 'turn', :require => false
+  gem 'asset-image-opt'
+  gem 'meta_request'
+end
+gem 'roo'
+gem 'russian'
+gem 'rails-i18n'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
