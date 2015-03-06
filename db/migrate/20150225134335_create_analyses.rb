@@ -4,10 +4,11 @@ class CreateAnalyses < ActiveRecord::Migration
     	t.integer :id, null: false
     	t.integer :user_id, index: true, null: false
     	t.integer :patient_id, index: true, null: false
-    	t.belongs_to :cat_catology, index: true, null: false
-    	t.belongs_to :cat_addition_inspection, index: true, null: false
-    	t.text :diagostic
-    	t.text :redirect, null: false
+    	t.belongs_to :cat_citology, index: true
+        t.belongs_to :cat_vpch, index: true
+    	t.belongs_to :cat_addition_inspection, index: true
+    	t.text :diagnostic
+    	t.text :redirect
     	t.boolean :visual, default: false
     	t.integer :registry_id, index: true
     	t.string :analys_key

@@ -3,7 +3,6 @@ class CreateCatAdditionInspections < ActiveRecord::Migration
     create_table :cat_addition_inspections do |t|
     	t.integer :id, null: false
     	t.string :name
-      t.timestamps
     end
   end
 end

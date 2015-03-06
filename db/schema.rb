@@ -16,10 +16,11 @@ ActiveRecord::Schema.define(:version => 20150225134533) do
   create_table "analyses", :force => true do |t|
     t.integer  "user_id",                                       :null => false
     t.integer  "patient_id",                                    :null => false
-    t.integer  "cat_catology_id",                               :null => false
-    t.integer  "cat_addition_inspection_id",                    :null => false
-    t.text     "diagostic"
-    t.text     "redirect",                                      :null => false
+    t.integer  "cat_citology_id"
+    t.integer  "cat_vpch_id"
+    t.integer  "cat_addition_inspection_id"
+    t.text     "diagnostic"
+    t.text     "redirect"
     t.boolean  "visual",                     :default => false
     t.integer  "registry_id"
     t.string   "analys_key"
@@ -30,15 +31,11 @@ ActiveRecord::Schema.define(:version => 20150225134533) do
   end
 
   create_table "cat_addition_inspections", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "name"
   end
 
   create_table "cat_citologies", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "name"
   end
 
   create_table "cat_vpches", :force => true do |t|

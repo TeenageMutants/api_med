@@ -3,7 +3,6 @@ class CreateCatCitologies < ActiveRecord::Migration
     create_table :cat_citologies do |t|
     	t.integer :id, null: false
     	t.string :name
-      t.timestamps
     end
   end
 end
