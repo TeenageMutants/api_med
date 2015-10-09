@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150414085551) do
+ActiveRecord::Schema.define(:version => 20151009080127) do
 
   create_table "analyses", :force => true do |t|
     t.integer  "user_id",                                       :null => false
@@ -42,6 +42,26 @@ ActiveRecord::Schema.define(:version => 20150414085551) do
 
   create_table "cat_vpches", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "diagnoses", :force => true do |t|
+    t.text     "diagnostics"
+    t.integer  "user_id"
+    t.datetime "next_visit_algorithm"
+    t.datetime "next_visit"
+    t.boolean  "closed",               :default => false
+    t.integer  "mkb_id",                                  :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+  end
+
+  add_index "diagnoses", ["mkb_id"], :name => "index_diagnoses_on_mkb_id"
+  add_index "diagnoses", ["user_id"], :name => "index_diagnoses_on_user_id"
+
+  create_table "mkbs", :force => true do |t|
+    t.string "code",        :null => false
+    t.string "name"
+    t.text   "description"
   end
 
   create_table "registries", :force => true do |t|
