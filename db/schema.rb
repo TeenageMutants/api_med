@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151009080127) do
+ActiveRecord::Schema.define(:version => 20151012063002) do
 
   create_table "analyses", :force => true do |t|
     t.integer  "user_id",                                       :null => false
@@ -53,8 +53,10 @@ ActiveRecord::Schema.define(:version => 20151009080127) do
     t.integer  "mkb_id",                                  :null => false
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
+    t.integer  "analyses_id",                             :null => false
   end
 
+  add_index "diagnoses", ["analyses_id"], :name => "index_diagnoses_on_analyses_id"
   add_index "diagnoses", ["mkb_id"], :name => "index_diagnoses_on_mkb_id"
   add_index "diagnoses", ["user_id"], :name => "index_diagnoses_on_user_id"
 
