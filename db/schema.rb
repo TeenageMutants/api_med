@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151012063002) do
+ActiveRecord::Schema.define(:version => 20151013142727) do
 
   create_table "analyses", :force => true do |t|
     t.integer  "user_id",                                       :null => false
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(:version => 20151012063002) do
     t.datetime "updated_at",                                    :null => false
     t.integer  "organization_id"
     t.boolean  "error_add",                  :default => false
+    t.integer  "state"
+    t.integer  "previous_state"
+    t.string   "key_spid"
+    t.string   "key_onko"
   end
 
   create_table "cat_addition_inspections", :force => true do |t|
@@ -38,6 +42,11 @@ ActiveRecord::Schema.define(:version => 20151012063002) do
 
   create_table "cat_citologies", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "cat_errors", :force => true do |t|
+    t.string "name",        :null => false
+    t.text   "description"
   end
 
   create_table "cat_vpches", :force => true do |t|
